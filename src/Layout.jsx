@@ -1,10 +1,10 @@
 import React from 'react';
+import Header from './components/Header';
 
 const Layout = () => {
   return (
     <React.Fragment>
-      {/* header component */}
-      <h1>Header</h1>
+      <Header />
       {/* products list */}
       <h2>Products List</h2>
       {/* cart */}

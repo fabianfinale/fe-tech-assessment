@@ -7,6 +7,11 @@ $color-body: #f7efe7;
   box-sizing: border-box;
 }
 
+.container {
+  margin: 0 auto;
+  max-width: 1140px;
+}
+
 /* Typography */
 ::selection {
   background: $color-primary;
@@ -18,9 +23,135 @@ html {
 }
 
 body {
-  color: $color-primary;
   background-color: $color-body;
   font-family: 'Crimson Text', serif;
-  font-size: 2.4rem;
+  font-size: 1.8rem;
   line-height: 1.5;
+}
+
+h1,
+h2,
+h3 {
+  color: $color-primary;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+  margin-top: 1.5rem;
+}
+
+h1 {
+  font-size: 5rem;
+  font-weight: 400;
+}
+
+h2 {
+  font-size: 4rem;
+  font-weight: 400;
+}
+
+h3 {
+  font-size: 3rem;
+  font-weight: 500;
+}
+
+p {
+  margin-top: 0;
+}
+
+@media screen and (min-width: 768px) {
+  h1 {
+    font-size: 6rem;
+  }
+
+  h3 {
+    font-size: 2.4rem;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  body {
+    font-size: 2.4rem;
+    line-height: 3rem;
+  }
+
+  h1 {
+    font-size: 9.6rem;
+  }
+
+  h3 {
+    font-size: 2.4rem;
+  }
+}
+
+// Buttons
+.btn {
+  border-radius: 2px;
+  border: 0;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  line-height: 2rem;
+  margin: 1rem 0;
+  outline: 0;
+  padding: 1.5rem 4rem;
+  text-align: center;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.btn--black {
+  background-color: #000;
+  color: #fff;
+}
+
+.btn--black:hover {
+  background-color: #111827;
+}
+
+@media screen and (min-width: 1024px) {
+  .btn {
+    line-height: 3rem;
+  }
+}
+
+// Header component
+.header {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding: 0 1.5rem;
+}
+
+.header__image {
+  display: block;
+  height: 60vh;
+  object-fit: cover;
+  object-position: center 70%;
+  width: 100%;
+}
+
+.header__content {
+  align-items: center;
+  background-color: $color-primary;
+  display: flex;
+  flex-direction: column;
+  height: 40vh;
+  justify-content: center;
+  text-align: center;
+}
+
+.header__content h1 {
+  color: #fff;
+}
+
+@media screen and (min-width: 1024px) {
+  .header {
+    padding: 0 3rem;
+  }
+
+  .header__image {
+    height: 70vh;
+  }
+  .header__content {
+    height: 30vh;
+  }
 }
