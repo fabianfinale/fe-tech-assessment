@@ -7,7 +7,6 @@ const uiSlice = createSlice({
   },
   reducers: {
     changeShoppingCartStatus: (ui) => {
-      console.log('Should be here');
       ui.shoppingCartCollapsed = !ui.shoppingCartCollapsed;
     },
   },

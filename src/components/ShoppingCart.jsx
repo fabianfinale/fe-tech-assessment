@@ -1,21 +1,24 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { removeItem } from '../store/cart';
 import ProductInfo from './ProductInfo';
 
 const ShoppingCart = () => {
+  const dispatch = useDispatch();
   const ui = useSelector((state) => state.ui);
-  const product = {
-    _id: '5f2b6fab44fb72edb82cfeda',
-    itemLink:
-      'https://files.plytix.com/api/v1.1/file/public_files/pim/assets/a1/ae/d4/5c/5cd4aea1a3dec0046811d88f/images/04/25/f8/5c/5cf82504e5e4ad046c385545/BQ-1019-25.jpg',
-    MSRP: 1065,
-    vendorName: "Moe's Home Collection CAN",
-    vendorProductName: 'JEDRIK OUTDOOR DINING TABLE SMALL',
-  };
+  const cart = useSelector((state) => state.entities.cart);
+
+  const itemsList = [];
+
+  for (const key in cart.items) {
+    itemsList.push(cart.items[key]);
+  }
+
+  const totalAmount = itemsList.reduce((acc, current) => acc + current.MSRP, 0);
 
   const handleClick = (id) => {
-    console.log('delete product:>> ', id);
+    dispatch(removeItem(id));
   };
   return (
     <aside
@@ -23,25 +26,21 @@ const ShoppingCart = () => {
         ui.shoppingCartCollapsed ? 'shopping-cart--collapsed' : ''
       }`}>
       <div className='shopping-cart__list'>
-        <ProductInfo product={product} onClick={handleClick} />
-        <ProductInfo product={product} onClick={handleClick} />
-        <ProductInfo product={product} onClick={handleClick} />
-        <ProductInfo product={product} onClick={handleClick} />
-        <ProductInfo product={product} onClick={handleClick} />
-        <ProductInfo product={product} onClick={handleClick} />
-        <ProductInfo product={product} onClick={handleClick} />
-        <ProductInfo product={product} onClick={handleClick} />
-        <ProductInfo product={product} onClick={handleClick} />
-        <ProductInfo product={product} onClick={handleClick} />
-        <ProductInfo product={product} onClick={handleClick} />
-        <ProductInfo product={product} onClick={handleClick} />
+        {itemsList.length > 0 ? (
+          itemsList.map((item) => (
+            <ProductInfo key={item._id} product={item} onClick={handleClick} />
+          ))
+        ) : (
+          <div className='shopping-cart--empty-list'>
+            <FontAwesomeIcon className='icon' icon='shopping-cart' fixedWidth />
+          </div>
+        )}
       </div>
       <div className='shopping-cart__total-amount'>
         <p className='label'>Total</p>
-        <p className='amount price-tag'>1800</p>
+        <p className='amount price-tag'>{totalAmount}</p>
       </div>
       <button className='btn btn--black btn--block'>
-        {' '}
         <FontAwesomeIcon icon='cart-arrow-down' fixedWidth /> Checkout
       </button>
     </aside>
