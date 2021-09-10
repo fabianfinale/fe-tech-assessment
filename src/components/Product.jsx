@@ -3,25 +3,23 @@ import PropTypes from 'prop-types';
 
 const Product = ({ product, onClick: handleClick }) => {
   return (
-    <article className='products-list__product'>
+    <article className='product'>
       <img
-        className='products-list__product-image'
-        src={product.imageURLs[0]}
+        className='product__image'
+        src={product.itemLink}
         alt={product.title}
       />
-      <div className='products-list__product-content'>
-        <h2 className='products-list__product-name'>
+      <div className='product__content'>
+        <h2 className='product__name'>
           {product.vendorProductName.toLowerCase()}
-          <span className='products-list__product-brand'>
-            {product.vendorName}
-          </span>
+          <span className='product__vendor'>{product.vendorName}</span>
         </h2>
         <button
-          className='products-list__product-btn btn--link'
+          className='btn btn--add-to-cart'
           onClick={() => handleClick(product._id)}>
           Add to cart
         </button>
-        <p className='products-list__product-price'>${product.MSRP}</p>
+        <p className='product__price price-tag'>{product.MSRP}</p>
       </div>
     </article>
   );

@@ -30,13 +30,6 @@ const ProductsList = () => {
           />
         ))
       )}
-      {/* {products.list.map((product) => (
-        <Product
-          key={product}
-          product={products.byId[product]}
-          onClick={handleClick}
-        />
-      ))} */}
     </main>
   );
 };
