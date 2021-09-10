@@ -1,4 +1,5 @@
 import React from 'react';
+import Product from './Product';
 
 const ProductsList = () => {
   const products = [
@@ -51,28 +52,15 @@ const ProductsList = () => {
       MSRP: 1065,
     },
   ];
+
+  const handleClick = (id) => {
+    console.log('clicked :>> ', id);
+  };
+
   return (
     <main className='products-list'>
       {products.map((product) => (
-        <article key={product._id} className='products-list__product'>
-          <img
-            className='products-list__product-image'
-            src={product.imageURLs}
-            alt={product.title}
-          />
-          <div className='products-list__product-content'>
-            <h2 className='products-list__product-name'>
-              {product.vendorProductName.toLowerCase()}
-              <span className='products-list__product-brand'>
-                {product.vendorName}
-              </span>
-            </h2>
-            <button className='products-list__product-btn btn--link'>
-              Add to cart
-            </button>
-            <p className='products-list__product-price'>${product.MSRP}</p>
-          </div>
-        </article>
+        <Product key={product._id} product={product} onClick={handleClick} />
       ))}
     </main>
   );
