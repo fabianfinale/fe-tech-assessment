@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { loadProducts } from '../store/products';
+import Loader from './Loader';
 import Product from './Product';
 
 const ProductsList = () => {
@@ -18,13 +19,24 @@ const ProductsList = () => {
 
   return (
     <main className='products-list'>
-      {products.list.map((product) => (
+      {products.loading ? (
+        <Loader />
+      ) : (
+        products.list.map((product) => (
+          <Product
+            key={product}
+            product={products.byId[product]}
+            onClick={handleClick}
+          />
+        ))
+      )}
+      {/* {products.list.map((product) => (
         <Product
           key={product}
           product={products.byId[product]}
           onClick={handleClick}
         />
-      ))}
+      ))} */}
     </main>
   );
 };

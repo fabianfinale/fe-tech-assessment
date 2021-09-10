@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { toast } from 'react-toastify';
 import { apiCallFailed, apiCallInitiated, apiCallSucceed } from '../api';
 
 const api =
@@ -14,11 +15,18 @@ const api =
     next(action);
 
     try {
-      const { data: responseData } = await axios.request({
-        method,
-        baseURL,
-        url,
-      });
+      const { data: responseData } = await toast.promise(
+        axios.request({
+          method,
+          baseURL,
+          url,
+        }),
+        {
+          pending: 'We are loading the products',
+          success: 'Products loaded successfully',
+          error: 'Oops! Something went wrong',
+        }
+      );
 
       dispatch(apiCallSucceed(responseData));
       if (onSuccess) dispatch({ type: onSuccess, payload: responseData });
