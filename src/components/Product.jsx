@@ -6,7 +6,7 @@ const Product = ({ product, onClick: handleClick }) => {
     <article className='products-list__product'>
       <img
         className='products-list__product-image'
-        src={product.imageURLs}
+        src={product.imageURLs[0]}
         alt={product.title}
       />
       <div className='products-list__product-content'>
