@@ -7,8 +7,16 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import configureStore from './store/configureStore';
 import { Provider } from 'react-redux';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import {
+  faCartArrowDown,
+  faCartPlus,
+  faShoppingCart,
+  faStore,
+} from '@fortawesome/free-solid-svg-icons';
 
 const store = configureStore();
+library.add(faShoppingCart, faCartPlus, faCartArrowDown, faStore);
 
 ReactDOM.render(
   <React.StrictMode>

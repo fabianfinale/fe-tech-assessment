@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Product = ({ product, onClick: handleClick }) => {
   return (
@@ -17,7 +18,7 @@ const Product = ({ product, onClick: handleClick }) => {
         <button
           className='btn btn--add-to-cart'
           onClick={() => handleClick(product._id)}>
-          Add to cart
+          <FontAwesomeIcon icon='cart-plus' fixedWidth /> Add to cart
         </button>
         <p className='product__price price-tag'>{product.MSRP}</p>
       </div>

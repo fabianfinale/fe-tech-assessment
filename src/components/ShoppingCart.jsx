@@ -1,3 +1,4 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import ProductInfo from './ProductInfo';
@@ -39,7 +40,10 @@ const ShoppingCart = () => {
         <p className='label'>Total</p>
         <p className='amount price-tag'>1800</p>
       </div>
-      <button className='btn btn--black btn--block'>Checkout</button>
+      <button className='btn btn--black btn--block'>
+        {' '}
+        <FontAwesomeIcon icon='cart-arrow-down' fixedWidth /> Checkout
+      </button>
     </aside>
   );
 };

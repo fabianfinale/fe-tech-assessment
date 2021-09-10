@@ -1,3 +1,4 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { changeShoppingCartStatus } from '../store/ui';
@@ -16,7 +17,7 @@ const Navbar = () => {
         Fülhaus Shop
       </a>
       <button className='btn btn--black btn--stretched' onClick={handleClick}>
-        Cart
+        <FontAwesomeIcon icon='shopping-cart' fixedWidth /> Cart
       </button>
     </nav>
   );
