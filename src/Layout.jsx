@@ -3,6 +3,7 @@ import { ToastContainer } from 'react-toastify';
 import Header from './components/Header';
 import Navbar from './components/Navbar';
 import ProductsList from './components/ProductsList';
+import ShoppingCart from './components/ShoppingCart';
 
 const Layout = () => {
   return (
@@ -13,7 +14,7 @@ const Layout = () => {
       {/* products list */}
       <ProductsList />
       {/* cart */}
-      <h2>Cart</h2>
+      <ShoppingCart />
     </React.Fragment>
   );
 };
