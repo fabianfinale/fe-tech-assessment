@@ -508,3 +508,35 @@ p {
     margin-bottom: 2rem;
   }
 }
+
+// Loader component
+.loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader__spinner {
+  width: 5rem;
+  height: 5rem;
+  box-sizing: border-box;
+  border: 5px solid;
+  border-radius: 100%;
+  border-color: #e0e0e0;
+  border-right-color: $color-primary;
+  animation: spin 0.65s linear infinite;
+}
+
+.loader__text {
+  margin-bottom: 0;
+  margin-left: 2rem;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
