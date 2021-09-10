@@ -125,6 +125,39 @@ p {
   }
 }
 
+// Navbar
+.navbar {
+  align-items: center;
+  background-color: #fff;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.8);
+  border-top: 1px solid rgba(0, 0, 0, 0.8);
+  box-shadow: 0 4px 4px 0 rgb(0, 0, 0, 0.25);
+  display: flex;
+  flex-wrap: wrap;
+  height: 80px;
+  justify-content: space-between;
+  left: 0;
+  padding: 0.5rem 3rem;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 1030;
+}
+
+.navbar__brand {
+  color: #000;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 3.6rem;
+  font-weight: 500;
+  line-height: 4.4rem;
+  text-decoration: none;
+}
+
+.navbar__btn {
+  margin: 0;
+  padding: 1.5rem 4.2rem;
+}
+
 // Header component
 .header {
   display: flex;
