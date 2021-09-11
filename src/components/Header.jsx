@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 
-const Header = () => {
+const Header = ({ onClick: handleClick }) => {
   return (
     <header className='header'>
       <picture>
@@ -102,7 +102,7 @@ const Header = () => {
       </picture>
       <div className='header__content'>
         <h1>Patio Furniture</h1>
-        <button className='btn btn--black'>
+        <button className='btn btn--black' onClick={handleClick}>
           <FontAwesomeIcon icon='store' fixedWidth /> Shop
         </button>
       </div>

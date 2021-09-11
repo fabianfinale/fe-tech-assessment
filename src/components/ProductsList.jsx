@@ -5,7 +5,7 @@ import { loadProducts } from '../store/products';
 import Loader from './Loader';
 import Product from './Product';
 
-const ProductsList = () => {
+const ProductsList = ({ reference }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -19,7 +19,7 @@ const ProductsList = () => {
   };
 
   return (
-    <main className='products-list'>
+    <main className='products-list' ref={reference}>
       {products.loading ? (
         <Loader />
       ) : (
