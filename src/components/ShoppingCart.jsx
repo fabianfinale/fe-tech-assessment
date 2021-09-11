@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { removeItem } from '../store/cart';
+import { removeItem, checkout } from '../store/cart';
 import ProductInfo from './ProductInfo';
 
 const ShoppingCart = () => {
@@ -17,9 +17,14 @@ const ShoppingCart = () => {
 
   const totalAmount = itemsList.reduce((acc, current) => acc + current.MSRP, 0);
 
-  const handleClick = (id) => {
+  const handleDelete = (id) => {
     dispatch(removeItem(id));
   };
+
+  const handleCheckout = () => {
+    dispatch(checkout());
+  };
+
   return (
     <aside
       className={`shopping-cart ${
@@ -28,7 +33,7 @@ const ShoppingCart = () => {
       <div className='shopping-cart__list'>
         {itemsList.length > 0 ? (
           itemsList.map((item) => (
-            <ProductInfo key={item._id} product={item} onClick={handleClick} />
+            <ProductInfo key={item._id} product={item} onClick={handleDelete} />
           ))
         ) : (
           <div className='shopping-cart--empty-list'>
@@ -40,7 +45,10 @@ const ShoppingCart = () => {
         <p className='label'>Total</p>
         <p className='amount price-tag'>{totalAmount}</p>
       </div>
-      <button className='btn btn--black btn--block'>
+      <button
+        className='btn btn--black btn--block'
+        disabled={!itemsList.length > 0}
+        onClick={handleCheckout}>
         <FontAwesomeIcon icon='cart-arrow-down' fixedWidth /> Checkout
       </button>
     </aside>

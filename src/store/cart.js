@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { toast } from 'react-toastify';
 
 const cartSlice = createSlice({
   name: 'cart',
@@ -15,8 +16,12 @@ const cartSlice = createSlice({
       console.log(`item is`, id);
       delete cart.items[id];
     },
+    checkout: (cart) => {
+      toast.success('Your checkout was successful');
+      cart.items = {};
+    },
   },
 });
 
 export default cartSlice.reducer;
-export const { addItem, removeItem } = cartSlice.actions;
+export const { addItem, removeItem, checkout } = cartSlice.actions;
